@@ -1,0 +1,733 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>reveal.js</title>
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section class = 'slide1'>
+<h1 class = 'first'> Занятие 4 </h1>
+<h2> Created by <span class = 'info'> Alesia Bandarenka </span></h2>
+<h3> e-mail: <span class = 'info'> <a href="mailto:littlecare@mail.ru ">littlecare@mail.ru </a></span></h3>
+<h3>tel:<a href = 'telto'> +375293173310</a></h3>
+<aside class = 'notes'></aside>
+                </section>
+                <section class = 'slide2'>
+					<h2>Массивы</h2>
+<img src="images/abstract-cube-array-red-blue-green.jpg..jpg" width="450" height="450">
+<aside class = 'notes'>
+</aside>
+                </section>
+                <section class = 'slide3'>
+                    <h2>Массив — всего лишь список, где хранятся другие значения.</h2>
+                        <pre><code data-trim data-noescape>
+							let arr = new Array();
+							let arr = [];
+                            </code></pre>
+                    <aside class = 'notes'>Используется для хранения списка чего-либо: пользователей, товаров и т.д.
+						Упорядоченной коллекции. Практически всегда используется второй вариант.
+						Фактически для задания пустого массива достаточно лишь пары квадратных скобок:
+Массиы может быть и пустым. Чтобы создать массив со значениями, нужно перечислить эти значения внутри квадратных скобок, разделяя их запятыми. 
+Отдельные значения, хранящиеся в массиве, называют элементами. 
+</aside>
+                </section>
+                <section class="slide4">
+                    <section class = 'slide4-1'>
+    <pre><code data-trim data-noescape>
+		let myTopDomesticAnimals = ["Кот", "Кролик", "Лошадь"];
+		alert( myTopDomesticAnimals[0] ); // Кот
+		alert( myTopDomesticAnimals[2] ); // Лошадь
+	</code></pre>
+	<img src="images/catAndRabbit.jpg" width="500" height="370">
+<aside class = 'notes'>Например, если вам интересно, какие три вида домашних животных мне нравится больше всего, я создала массив и расположила
+	там по порядку названия этих животных:
+	Элементы массива нумеруются, начиная с нуля.
+	Мы можем получить элемент, указав его номер в квадратных скобках:
+</aside>
+					</section>
+					<section class='slide4-2'>
+						<h2>Зачем нужны массивы?</h2>
+						<pre><code data-trim data-noescape>
+							let domesticAnimal1 = "Кот";
+							let domesticAnimal2 = "Кролик";
+							let domesticAnimal3 = "Собака";
+							let domesticAnimal4 = "Лошадь";
+							let domesticAnimal5 = "Коза";
+							let domesticAnimal6 = "Овца";
+							let domesticAnimal7 = "Корова";
+							let domesticAnimal8 = "Свинья";
+							let domesticAnimal9 = "Корова";
+						</code></pre></code>
+						<img src="images/domesticAnimals.jpg" width="330" height="330">
+						<aside class = 'notes'>Предположим, вы решили написать программу для учета всех видов животных, которые вам известны<div class="">Вы
+							можете создать для каждого вида отдельную переменную:
+							Пользоваться этим списком не слишком удобно — у вас
+							есть девять переменных там, где можно обойтись лишь одной. А теперь
+							представьте, что животных в программе не девять, а 1000! Пришлось
+							бы создать 1000 отдельных переменных, работать с которыми было бы
+							решительно невозможно. 
+							Это похоже на список покупок, составленный так, что каждая
+							покупка указана на отдельном листе бумаги. На одном листке написано
+							«яйца», на другом — «хлеб», на следующем — «апельсины». Большинство
+							людей предпочли бы видеть весь список на одном листе бумаги. Так
+							не проще ли сгруппировать всех динозавров в один список?
+							Вот для этого и нужны массивы.
+							</aside>
+					</section>
+                <section class = 'slide4-3'>
+                    <pre><code data-trim data-noescape>
+						let domesticAnimals = ["Кот", "Кролик", "Собака", "Лошадь", "Коза", "Овца", "Корова", "Свинья", "Корова"];</code></pre>
+						<pre><code data-trim data-noescape>
+							let domesticAnimals = ["Кот", 
+							"Кролик", 
+							"Собака",
+							"Лошадь",
+							"Коза",
+							"Овца",
+							"Корова",
+							"Свинья",
+							"Корова"]; </code></pre>
+                    <aside class = 'notes'>Длинный список сложно читать, когда он записан одной строкой, но,
+						к счастью, это не единственный способ форматирования кода при создании массива. Вы можете поставить открывающую квадратную скобку
+						на одной строке, каждый элемент писать с новой строки и последней
+						строкой поставить закрывающую квадратную скобку:
+							</section>
+							
+							<section class='slide4-4'>
+								<p>Мы можем заменить элемент:</p>
+								<pre><code data-trim data-noescape>
+									let myTopDomesticAnimals = ["Кот", "Кролик", "Лошадь"];
+									myTopDomesticAnimals[0] = "Корова"; // теперь ["Корова", "Кролик", "Лошадь"]
+								</code></pre>
+								<p>Добавить новый элемент:</p>
+								<pre><code data-trim data-noescape>
+									let myTopDomesticAnimals = ["Кот", "Кролик", "Лошадь"];
+									myTopDomesticAnimals[3] = "Корова"; // теперь ["Кот", "Кролик", "Лошадь", "Корова"]
+								</code></pre>
+								<p>Можно добавить элемент с любым индексом:</p>
+								<pre><code data-trim data-noescape>
+									let myTopDomesticAnimals = ["Кот", "Кролик", "Лошадь"];
+									myTopDomesticAnimals[30] = "Корова"; // теперь ["Кот", "Кролик", "Лошадь", undefined*27, "Корова"]
+								</code></pre>
+								<aside class = 'notes'>Элементы между индексами 3 и 30 получат значение undefined. При
+									печати массива Chrome сообщает количество этих undefi ned-элементов,
+									а не выводит каждый из них по отдельности.</aside>
+							</section>
+							<section class='slide4-5'>
+								<h2>Разные типы данных в одном массиве</h2>
+								<pre><code data-trim data-noescape>
+									let dinosaursAndNumbers = [3, "динозавры", ["трицератопс", "стегозавр", 3627.5], 10];</code></pre>
+								<pre><code data-trim data-noescape>
+									dinosaursAndNumbers[2]; //["трицератопс", "стегозавр", 3627.5]
+									dinosaursAndNumbers[2][0]; //"трицератопс"</code></pre>
+								<img src="images/ArrayInArray.png" width = '750' length = '350'>
+								<aside class = 'notes'>Не обязательно, чтобы все элементы массива были одного типа. Чтобы обратиться к элементам массива, вложенного в другой массив, нужно использовать вторую пару квадратных скобок. Например,
+									если команда dinosaursAndNumbers[2]; вернет весь вложенный массив, то dinosaursAndNumbers[2][0]; — лишь первый элемент этого
+									вложенного массива ("трицератопс") </aside>
+							</section>
+							<section class='slide4-6'>
+								<h2>Как получить слово "ласточка"? </h2>
+								<pre><code data-trim data-noescape>
+									let arraysInArray = [
+									13, 
+									23,
+									 "динозавры", 
+									 ["трицератопс", "стегозавр", 3627.5], 
+									 100,
+									 "годы жизни",
+									 [true, "собака", "ласточка", 2004, "сбой"],
+									 "улица",
+									 ["счастье - это осознанная жизнь", "радость", "успех1002"]];</code></pre>
+								<aside class = 'notes'>arraysInArray[6][2]</aside>
+							</section>
+				</section>
+				<section class="slide5">
+                    <section class = 'slide5-1'>
+						<h2>Работаем с массивами</h2>
+						<h3> Свойства хранят
+							различные сведения о массиве, а методы обычно либо изменяют его,
+							либо возвращают новый массив. </h3>
+							<img src="images/js-array-methods.jpg" width="250" height="250">
+							</section>
+							<section class = 'slide5-2'>
+								<h2>Длина массива</h2>
+								<pre><code data-trim data-noescape>
+									let birds = ["соловей", "ласточка", "грач"];
+									birds[0] = "соловей";
+									birds[1] = "ласточка";
+									birds[2] = "грач";
+								</code></pre>
+								<pre><code data-trim data-noescape>
+									birds.length; //3
+								</code></pre>
+								<pre><code data-trim data-noescape>
+									birds[birds.length - 1]; //"грач"
+								</code></pre>
+								<aside class='notes'> Порой нужно знать, сколько в массиве элементов. Например, если снова
+									и снова добавлять животных в массив animals, вы можете забыть,
+									сколько их теперь всего.
+									Для этого есть свойство length (длина), хранящее количество элементов в массиве. Чтобы узнать длину массива, просто добавьте .length
+									после его имени. Чтобы узнать длину этого массива, добавим .length к birds:
+									JavaScript сообщает, что в массиве 3 элемента, и мы знаем, что их
+									индексы — 0, 1 и 2. Отсюда следует полезное наблюдение: последний
+									индекс массива всегда на единицу меньше длины этого массива. Это
+									значит, что есть простой способ получить последний элемент массива,
+									какой бы ни была его длина:</aside>
+									</section>
+								<section class = 'slide5-3'>
+									<h2>Добавить элемент в конец массива</h2>
+									<h3>.push</h3>
+										<pre><code data-trim data-noescape>
+											let animals = [];
+											animals.push("Кот"); //1
+											animals.push("Пес"); //2
+											animals.push("Кролик"); //3
+											animals; ["Кот", "Пес", "Кролик"]
+											animals.length; //3
+										</code></pre>
+										<aside class='notes'> Чтобы добавить элемент к концу массива, можно воспользоваться методом push. 
+											Введите .push после имени массива, а после в круглых скобках укажите элемент, который нужно добавить:
+											Запуск метода в программировании называется вызовом метода. При вызове метода push происходят две вещи.
+											Во-первых, в массив добавляется элемент, указанный в скобках. Во-вторых, метод задает новую длину массива. Именно
+											эти значения длины появляются в консоли после каждого
+											вызова push.</aside>
+											</section>
+											<section class = 'slide5-4'>
+												<h3>Чтобы добавить элемент в начало массива, используйте
+													метод .unshift(элемент):</h3>
+													<pre><code data-trim data-noescape>
+														animals; //["Кот", "Пес", "Лама"]
+														animals[0]; //"Кот"
+														animals.unshift("Мартышка"); //4
+														animals; //["Мартышка", "Кот", "Пес", "Лама"]
+														animals.unshift("Белый медведь"); //5
+														animals; //["Белый медведь", "Мартышка", "Кот", "Пес", "Лама"]
+														animals[0]; //"Белый медведь"
+														animals[2]; //"Кот"
+												</code></pre>
+												<aside class="notes">Мы начали с массива, созданного раньше, —
+													["Кот", "Пес", "Лама"]. Затем добавили в его
+													начало элементы "Мартышка" и "Белый медведь",
+													отчего остальные элементы сдвинулись вперед —
+													при каждом добавлении их индексы увеличивались
+													на 1. В результате элемент "Кот", у которого раньше
+													был индекс 0 , оказался под индексом 2 .
+													Как и push, метод unshift при каждом вызове
+													задает новую длину массива.</aside>
+													</section>
+													<section class = 'slide5-5'>
+														<h2>Удаление элементов с конца массива</h2>
+														<h3>.pop</h3>
+														<pre><code data-trim data-noescape>
+															animals; //["Белый медведь", "Мартышка", "Кот", "Пес", "Лама"]
+															let lastAnimal = animals.pop();
+															lastAnimal; //"Лама"
+															animals; //["Белый медведь", "Мартышка", "Кот", "Пес"]
+															animals.pop(); //"Пес"
+															animals; //["Белый медведь", "Мартышка", "Кот"]
+															animals.unshift(lastAnimal);
+															animals; //["Лама", "Белый медведь", "Мартышка", "Кот"]
+														</code></pre>
+														<aside class="notes">Убрать из массива последний элемент можно, добавив к его имени
+															.pop(). Метод pop делает сразу два дела: удаляет последний элемент
+															из массива и возвращает этот элемент в виде значения. Для примера
+															начнем с нашего массива animals ["Белый медведь", "Мартышка",
+															"Кот", "Пес", "Лама"]. Далее создадим новую переменную lastAnimal
+															и сохраним в ней последний элемент, вызвав animals.pop().</aside>
+													</section>
+													<section class = 'slide5-6'>
+														<img src="images/pushAndPop.png" width="1000" height="500">
+														<aside class="notes">Метод pop(удалить) из массива animal, был занесен в переменную lastAnimal, 
+															поскольку 'Лама' была сохранена в переменной, то при необходимости мы ее смогжем добавить снова в массив, что и было сделано.
+															Методы push и pop хорошо друг друга дополняют, поскольку порой
+															нужно работать только с концом массива. Вы можете добавить элемент
+															в конец вызовом push, а потом, когда это понадобится, забрать его оттуда
+															вызовом pop. Мы рассмотрим это на примере чуть позже в этой главе.</aside>
+													</section>
+													<section class = 'slide5-7'>
+														<h2>Поход к другу</h2>
+														<pre><code data-trim data-noescape>
+															let landmarks = [];
+															landmarks.push("Мой дом");
+															landmarks.push("Дорожка к дому");
+															landmarks.push("Моя бывшая школа");
+															landmarks.push("Магазин");
+															landmarks.push("Яблоневый сад");
+															landmarks.push("Подземный переход");
+															landmarks.push("Кафе");
+															landmarks.push("Желтый забор");
+															landmarks.push("Дом друга");
+															</code></pre>
+														<aside class="notes">Представьте, что вы идете в гости к другу, у которого частный дом и вы у него никогда не бывали.
+															Телефон разрядился, но друг вам заранее рассказал примерный путь, вы сомневаетесь сможете ли вы вернуться домой.
+															Поэтому решили записывать на листок возможные ориентиры (магазин, здание и т.д.). А по дороге домой вы будете вычеркивать с конца эти ориентиры.
+														</aside>
+													</section>
+													<section class = 'slide5-8'>
+														<h2>Возвращение домой</h2>
+														<pre><code data-trim data-noescape>
+															landmarks.pop(); //"Дом друга"
+															landmarks.pop(); //"Желтый забор"
+															landmarks.pop(); //"Кафе"
+															landmarks.pop(); //"Подземный переход"
+															landmarks.pop(); //"Яблоневый сад"
+															landmarks.pop(); //"Магазин"
+															landmarks.pop(); //"Моя бывшая школа"
+															landmarks.pop(); //"Дорожка к дому"
+															landmarks.pop(); //"Мой дом"															
+															</code></pre>
+														<aside class="notes">Заметили, что первый ориентир, который вы поместили
+															в массив методом push, оказался также последним, который
+															вы извлекли методом pop? А последний добавленный ориентир
+															оказался первым извлеченным? Такой подход нередко используется в больших программах — именно поэтому push и pop в JavaScript всегда под
+															рукой.
+															</aside>
+													</section>
+													<section class = 'slide5-9'>
+														<h2> LIFO (last in, first out)</h2>
+														<h3>стек - «последним вошел, первым вышел»</h3>
+														<img src="images/pancakes.png" width = "350" height="300">
+														<img src="images/pushPop.png" width = "350" height="300">
+														<aside class="notes">такой способ работы с элементами называется «стек». Представьте, что стек — это стопка блинов. Всякий
+															раз, когда готов новый блин, его кладут сверху стопки (как метод
+															push), и, когда вы берете блин, чтобы его съесть, вы тоже берете
+															его сверху (как метод pop). Снятие элементов со стека похоже
+															на путешествие назад во времени: последним изымается элемент, который был в стеке первым. То же происходит с блинами:
+															последний блин, который вы съедите, — это первый, который был
+															приготовлен
+															</aside>
+													</section>
+													<section class = 'slide5-10'>
+														<h2>shift()/unshift()</h2>
+														<pre><code data-trim data-noescape>
+															animals; //["Лама", "Белый медведь", "Мартышка", "Кот"]
+															let firstAnimal = animals.shift();
+															firstAnimal; //"Лама"
+															animals; //["Белый медведь", "Мартышка", "Кот"]</code></pre>
+														<aside class="notes">Убрать из массива последний элемент можно, добавив к его имени
+															.pop(). Метод pop делает сразу два дела: удаляет последний элемент
+															из массива и возвращает этот элемент в виде значения. Для примера
+															начнем с нашего массива animals ["Белый медведь", "Мартышка",
+															"Кот", "Пес", "Лама"]. Далее создадим новую переменную lastAnimal
+															и сохраним в ней последний элемент, вызвав animals.pop().</aside>
+													</section>
+													<section class = 'slide5-11'>
+														<p>Методы unshift и shift добавляют и удаляют элементы с начала
+															массива — так же как push и pop добавляют и удаляют элементы с конца.</p>
+														<img src="images/shiftUnshift.png" width="1000" height="500">
+														<aside class="notes">Методы unshift и shift добавляют и удаляют элементы с начала
+															массива — так же как push и pop добавляют и удаляют элементы с конца.</aside>
+													</section>
+													<section class = 'slide5-12'>
+														<h2> FIFO (first in, first out)</h2>
+														<h3>очередь - «первый вошел, первый вышел»</h3>
+														<img src="images/queue.jpg" width = "350" height="250">
+														<img src="images/shiftPush.png" width = "350" height="250">
+														<aside class="notes"> Есть и альтернативный подход — «первым вошел,
+															первым вышел», аббревиатура FIFO (fi rst in, first out). Его также
+															называют очередью, поскольку таким же образом устроены очереди — первый человек, вставший в очередь, будет первым, которого обслужат.
+															Методы push/pop выполняются быстро, а методы shift/unshift – медленно. Why? (В конце массива меняется только один элемент массива, а в начале нужно поменять индекс у всех остальных элементов в массиве</aside>
+													</section>
+				</section>
+													<section class = 'slide6'>
+														<section class='slide6-1'>
+															<h2>Объединение массивов</h2>
+															<h3>firstArray.<b>concat</b>(otherArray)</h3>
+															<pre><code data-trim data-noescape>
+																let furryAnimals = ["Альпака", "Лемур", "Йети"];
+																let scalyAnimals = ["Удав", "Анаконда"];
+																let furryAndScalyAnimals = furryAnimals.concat(scalyAnimals);
+																furryAndScalyAnimals; //["Альпака", "Лемур", "Йети", "Удав", "Анаконда"]
+																furryAnimals; //["Альпака", "Лемур", "Йети"]
+																scalyAnimals; //["Удав", "Анаконда"]
+															</code></pre>
+															<aside class="notes">Чтобы «склеить» два массива, создав таким образом
+																новый массив, используйте команду firstArray.
+																concat(otherArray). Метод concat создает массив, в котором элементы из firstArray будут расположены перед элементами из otherArray.
+																Хоть команда firstArray.concat(otherArray) и возвращает массив, содержащий все элементы из firstArray и otherArray, сами эти
+																массивы остаются прежними. Запросив содержимое furryAnimals
+																и scalyAnimals, мы видим, что массивы не изменились.</aside>
+														</section>
+														<section class='slide6-2'>
+															<h2>Объединение нескольких массивов</h2>
+															<pre><code data-trim data-noescape>
+																let furryAnimals = ["Альпака", "Лемур", "Йети"];
+																let scalyAnimals = ["Удав", "Анаконда"];
+																let featheredAnimals = ["Ара", "Додо"];
+																let allAnimals = furryAnimals.concat(scalyAnimals, featheredAnimals);
+																allAnimals; //["Альпака", "Кольцехвостый лемур", "Йети", "Удав", "Анаконда", "Ара", "Додо"]</code></pre>
+																<img src="images/Alpaka.png" width="200" height="250">
+															<aside class="notes">С помощью concat можно объединить больше чем два массива. Для этого
+																укажите дополнительные массивы в скобках, разделив их запятыми:
+																Мы видим, что пернатые животные из массива featheredAnimals
+																оказались в самом конце нового массива, поскольку featheredAnimals
+																был указан последним в скобках метода concat.</aside>
+														</section>
+														<section class='slide6-3'>
+															<h2>slice</h2>
+															<h3>arr.slice([start], [end])</h3>
+															<p>возвращает новый массив, в который копирует элементы, начиная с индекса start и до end (не включая end). Оба индекса start и end могут быть отрицательными.</p>
+															<pre><code data-trim data-noescape>
+																let arr = ["t", "e", "s", "t"];
+																alert( arr.slice(1, 3) ); // e,s (копирует с 1 до 3)
+																alert( arr.slice(-2) ); // s,t (копирует с -2 до конца)</code></pre>
+																<aside class="notes"> В таком случае отсчёт будет осуществляться с конца массива.
+																Это похоже на строковый метод str.slice, но вместо подстрок возвращает подмассивы.
+																Можно вызвать slice и вообще без аргументов: arr.slice() создаёт копию массива arr. Это часто используют, чтобы создать копию массива для дальнейших преобразований, которые не должны менять исходный массив.</aside>
+														</section>
+														<section class='slide6-4'>
+															<h2>splice</h2>
+															<h3>arr.splice(index[, deleteCount, elem1, ..., elemN])</h3>
+															<p>Он начинает с позиции index, удаляет deleteCount элементов и вставляет elem1, ..., elemN на их место. 
+																Возвращает массив из удалённых элементов.</p>
+															<pre><code data-trim data-noescape>
+																let arr = ["Я", "сейчас", "изучаю", "JavaScript"];
+																arr.splice(1, 1); // начиная с позиции 1, удалить 1 элемент
+																alert( arr ); // осталось ["Я", "изучаю", "JavaScript"]</code></pre>
+																</section>
+																<section class='slide6-5'>
+																	<p>Удалим 3 элемента и заменим их двумя другими.</p>
+																	<pre><code data-trim data-noescape>
+																		let arr = ["Я", "изучаю", "JavaScript", "прямо", "сейчас"];
+																		// удалить 3 первых элемента и заменить их другими
+																		arr.splice(0, 3, "Давай", "танцевать");
+																		alert( arr ) // теперь ["Давай", "танцевать", "прямо", "сейчас"]</code></pre>
+																		<p>Сохраним, удаленные элементы в переменную</p>
+																		<pre><code data-trim data-noescape>
+																			let arr = ["Я", "изучаю", "JavaScript", "прямо", "сейчас"];
+																			// удалить 2 первых элемента
+																			let removed = arr.splice(0, 2);
+																			alert( removed ); // "Я", "изучаю" <-- массив из удалённых элементов</code></pre>
+																		</section>
+																		<section class='slide6-6'>
+																			<p>Метод splice может вставлять элементы без удаления, для этого нужно установить deleteCount в 0:</p>
+																			<pre><code data-trim data-noescape>
+																				let arr = ["Я", "изучаю", "JavaScript"];
+																				// с позиции 2
+																				// удалить 0 элементов
+																				// вставить "сложный", "язык"
+																				arr.splice(2, 0, "сложный", "язык");
+																				alert( arr ); // "Я", "изучаю", "сложный", "язык", "JavaScript"</code></pre>
+																				<p>Допускается использование отрицательного индекса.</p>
+																					 <pre><code data-trim data-noescape>
+																						let arr = [1, 2, 5];
+																						// начиная с индекса -1 (перед последним элементом)
+																						// удалить 0 элементов,
+																						// затем вставить числа 3 и 4
+																						arr.splice(-1, 0, 3, 4);
+																						alert( arr ); // 1,2,3,4,5</code></pre>
+																		</section>
+														<section class='slide6-7'>
+															<h2>Метод arr.forEach позволяет запускать функцию для каждого элемента массива.</h2>
+															<p>arr.forEach(function(item, index, array) {
+																// ... делать что-то с item
+															  });</p>
+															<pre><code data-trim data-noescape>
+																["мороженое", "массаж", "учиться новому", "книги"].forEach(alert);</code></pre>
+																<aside class="notes">forEach просто перебирает массив как цикл for, ничего не изменяя
+																	Результат функции (если она вообще что-то возвращает) отбрасывается и игнорируется.
+																</aside>
+														</section>
+														<section class='slide6-8'>
+															<h2>Поиск индекса элемента в массиве</h2>
+															<h3>.indexOf("элемент")</h3>
+															<p>arr.lastIndexOf(item, from) – то же самое, но ищет справа налево.</p>
+															<pre><code data-trim data-noescape>
+																let colors = ["красный", "зеленый", "синий"];
+																colors.indexOf("синий"); //2
+																colors.indexOf("зеленый"); //1</code></pre>
+																<pre><code data-trim data-noescape>
+																	colors.indexOf("фиолетовый"); //-1, поскольку такого элемента нет в массиве</code></pre>
+																	<pre><code data-trim data-noescape>
+																		let insects = ["Пчела", "Муравей", "Пчела", "Пчела", "Муравей"];
+																		insects.indexOf("Пчела"); //0</code></pre>
+														</section>
+														<section class='slide6-9'>
+															<h2>arr.includes(item, from)</h2>
+															<h3>ищет item, начиная с индекса from, и возвращает true, если поиск успешен</h3>
+															<pre><code data-trim data-noescape>
+																let arr = [1, 0, false];
+																alert( arr.includes(1) ); // true</code></pre>
+																<pre><code data-trim data-noescape>
+																	const arr = [NaN];
+																	alert( arr.indexOf(NaN) ); // -1 (должен быть 0, но === проверка на равенство не работает для NaN)
+																	alert( arr.includes(NaN) );// true (верно)</code></pre>
+																<aside class="notes">
+																	Если мы хотим проверить наличие элемента, и нет необходимости знать его точный индекс, тогда предпочтительным является arr.includes.
+																	Кроме того, очень незначительным отличием includes является то, что он правильно обрабатывает NaN в отличие от indexOf/lastIndexOf:
+																</aside>
+														</section>
+														<section class='slide6-10'>
+															<h2>find и findIndex</h2>
+															<p>let result = arr.find(function(item, index, array) {
+																// если true - возвращается текущий элемент и перебор прерывается
+																// если все итерации оказались ложными, возвращается undefined
+															  });</p>
+															<pre><code data-trim data-noescape>
+																let users = [
+																	{id: 1, name: "Вася"},
+																	{id: 2, name: "Петя"},
+																	{id: 3, name: "Маша"}
+																];
+																let user = users.find(item => item.id == 1);
+																alert(user.name); // Вася</code></pre>
+																<aside class="notes">
+																	есть массив объектов. Как нам найти объект с определённым условием?
+																	Если функция возвращает true, поиск прерывается и возвращается item. Если ничего не найдено, возвращается undefined.
+																	Например, у нас есть массив пользователей, каждый из которых имеет поля id и name. Попробуем найти того, кто с id == 1:
+																	Метод arr.findIndex – по сути, то же самое, но возвращает индекс, на котором был найден элемент, а не сам элемент, и -1, если ничего не найдено.</aside>
+														</section>
+														<section class='slide6-11'>
+															<h2>filter</h2>
+															<p>let results = arr.filter(function(item, index, array) {
+																// если true - элемент добавляется к результату, и перебор продолжается
+																// возвращается пустой массив в случае, если ничего не найдено
+															  });
+															  </p>
+															<pre><code data-trim data-noescape>
+																let users = [
+																	{id: 1, name: "Вася"},
+																	{id: 2, name: "Петя"},
+																	{id: 3, name: "Маша"}
+																];
+																let someUsers = users.filter(item => item.id < 3);
+																alert(someUsers.length); // 2</code></pre>
+																<aside class="notes">
+																	Синтаксис этого метода схож с find, но filter возвращает массив из всех подходящих элементов:</aside>
+														</section>
+													</section>
+													<section class='slide7>'>
+														<section class='slide7-1'>
+															<h2>Превращаем массив в строку</h2>
+															<h3> массив.join("разделитель")</h3>
+															<pre><code data-trim data-noescape>
+																let boringAnimals = ["Мартышка", "Кот", "Рыба", "Ящерица"];
+																boringAnimals.join(); //"Мартышка,Кот,Рыба,Ящерица"</code></pre>
+																<pre><code data-trim data-noescape>
+																	let boringAnimals = ["Мартышка", "Кот", "Рыба", "Ящерица"];
+																	boringAnimals.join(" - "); //"Мартышка - Кот - Рыба - Ящерица" 
+																	boringAnimals.join(" "); // "Мартышка Кот Рыба Ящерица"
+																	boringAnimals.join(" и "); //"Мартышка и Кот и Рыба и Ящерица"</code></pre>
+																	<pre><code data-trim data-noescape>
+																		let ages = [11, 14, 79];
+																		ages.join(" "); //"11 14 79"</code></pre>
+															<aside class="notes">Метод join возвращает строку, в которой через запятую перечислены все элементы массива boringAnimals
+																Если же в массиве хранятся нестроковые значения, JavaScript преобразует их в строки перед тем, как соединить:
+															</aside>
+														</section>
+														<section class='slide7-2'>
+															<h2>строка.split("разделитель")</h2>
+															<p>split разбивает строку на массив по заданному разделителю </p>
+															<pre><code data-trim data-noescape>
+																let names = 'Вася, Петя, Маша';
+																let arr = names.split(', ');
+															</code></pre>
+															<pre><code data-trim data-noescape>
+																let arr = 'Вася, Петя, Маша, Саша'.split(', ', 2);
+																console.log(arr); // Вася, Петя
+															</code></pre>
+															<pre><code data-trim data-noescape>
+																let str = "тест";
+																alert( str.split('') ); // т,е,с,т
+															</code></pre>
+															<aside class="notes">split разбивает строку на массив по заданному разделителю 
+																В примере таким разделителем является строка из запятой и пробела.
+																У метода split есть необязательный второй числовой аргумент – ограничение на количество элементов в массиве. Если их больше, чем указано, то остаток массива будет отброшен. 
+																На практике это редко используется:
+																Вызов split(s) с пустым аргументом s разбил бы строку на массив букв:
+															</aside>
+														</section>
+														<section class='slide7-3'>
+															<h2>reverse</h2>
+															<h3>Метод array.reverse меняет порядок элементов в array на обратный.</h3>
+															<pre><code data-trim data-noescape>
+																let numbers = [1, 2, 3, 4, 5];
+																numbers.reverse();
+																alert(numbers); // 5,4,3,2,1
+															</code></pre>
+														</section>
+														<section class='slide7-4'>
+															<h2>map</h2>
+															<p>let result = arr.map(function(item, index, array) {
+																// возвращается новое значение вместо элемента
+															  });</p>
+															<p> Вызывает функцию для каждого элемента массива и возвращает массив результатов выполнения этой функции.</p>
+															<pre><code data-trim data-noescape>
+																let lengths = ["Золушка", "Ариэль", "Моана"].map(item => item.length);
+																alert(lengths); // 7,6,5
+															</code></pre>
+															<aside class="notes">Метод arr.map является одним из наиболее полезных и часто используемых.
+															</aside>
+														</section>
+														<section class='slide7-5'>
+															<h2>sort(fn)</h2>
+															<p>Вызов arr.sort() сортирует массив на месте, меняя в нём порядок элементов.</p>
+															<pre><code data-trim data-noescape>
+																let arr = [ 1, 2, 15 ];
+																// метод сортирует содержимое arr
+																arr.sort();
+																alert( arr );  // 1, 15, 2
+															</code></pre>
+															<pre><code data-trim data-noescape>
+																let arr = [ 1, 2, 15 ];
+																arr.sort(function(a, b) { return a - b; });															
+																alert(arr);  // 1, 2, 15
+															</code></pre>
+															<pre><code data-trim data-noescape>
+																arr.sort( (a, b) => a - b );
+															</code></pre>
+															<aside class="notes">Он возвращает отсортированный массив, но обычно возвращаемое значение игнорируется, так как изменяется сам массив.Заметили ошибку? По умолчанию элементы сортируются как строки.
+																Буквально, элементы преобразуются в строки при сравнении. Для строк применяется лексикографический порядок, и действительно выходит, что "2" > "15".	
+																Чтобы использовать наш собственный порядок сортировки, нам нужно предоставить функцию в качестве аргумента arr.sort().</aside>
+														</section>
+														<section class='slide7-6'>
+															<h2>reduce/reduceRight</h2>
+															<p>let value = arr.reduce(function(previousValue, item, index, array) {
+																// ...
+															  }, [initial]);</p>
+															<p>Используются для вычисления какого-нибудь единого значения на основе всего массива.</p>
+															<p>Функция применяется по очереди ко всем элементам массива и «переносит» свой результат на следующий вызов.</p>
+															<aside class="notes">При вызове функции результат её вызова на предыдущем элементе массива передаётся как первый аргумент.
+																Звучит сложновато, но всё становится проще, если думать о первом аргументе как «аккумулирующем» результат предыдущих вызовов функции. По окончании он становится результатом reduce.
+																Этот метод проще всего понять на примере.</aside>
+														</section>
+														<section class='slide7-7'>
+															<p>Аргументы:
+																previousValue – результат предыдущего вызова этой функции,
+																item – очередной элемент массива,
+																index – его индекс,
+																array – сам массив.</p>
+															<pre><code data-trim data-noescape>
+																let arr = [1, 2, 3, 4, 5];
+																let result = arr.reduce((sum, current) => sum + current, 0);
+																alert(result); // 15
+															</code></pre>
+														</section>
+														<section class='slide7-8'>
+															<img src="images/reduce.png" width="1000" height="600">
+															<aside class="notes">Давайте детальнее разберём, как он работает.
+																При первом запуске sum равен initial (последний аргумент reduce), то есть 0, а current – первый элемент массива, равный 1. Таким образом, результат функции равен 1.
+																При втором запуске sum = 1, и к нему мы добавляем второй элемент массива (2).
+																При третьем запуске sum = 3, к которому мы добавляем следующий элемент, и так далее…
+																Метод arr.reduceRight работает аналогично, но проходит по массиву справа налево.</aside>
+														</section>
+														<section class='slide7-9'>
+															<h2>Array.isArray</h2>
+															<p>Массивы не образуют отдельный тип языка. Они основаны на объектах.
+																Поэтому typeof не может отличить простой объект от массива:</p>
+															<pre><code data-trim data-noescape>
+																alert(typeof {}); // object
+																alert(typeof []); // тоже object
+															</code></pre>
+															<pre><code data-trim data-noescape>
+																alert(Array.isArray({})); // false
+																alert(Array.isArray([])); // true
+															</code></pre>
+															<aside class="notes">Но массивы используются настолько часто, что для этого придумали специальный метод: Array.isArray(value). Он возвращает true, если массив, и false, если нет.</aside>
+														</section>
+													</section>
+													<section data-transition = 'slide8'>
+														<section data-transition = 'slide8-1'>
+														<h2>Случайный выбор</h2>
+														<img src="images/ballOfFate.jpg" height="400" width="450">
+														<aside class = 'notes'>Используя массивы, можно написать программу, которая выдает случайные варианты из заданного списка (наподобие «шара судьбы»). Однако
+															сначала нужно разобраться, откуда нам брать случайные числа.</aside>
+													</section>
+															<section data-transition = 'slide8-2'>
+																<h2> Math.random()</h2>
+																<pre><code data-trim data-noescape>
+																	Math.random(); //0.8945409457664937
+																	Math.random(); //0.3697543195448816
+																	Math.random(); //0.48314980138093233</code></pre>
+																	<pre><code data-trim data-noescape>
+																		Math.random() * 10; //7.648027329705656
+																		Math.random() * 100; //97.565904534421861
+																		Math.random() * 1000; //214.83442978933454</code></pre>
+															<aside class="notes">Случайные числа можно генерировать с помощью специального метода
+																Math.random(), который при каждом вызове возвращает случайное
+																число от 0 до 1:
+																Важно помнить, что Math.random() всегда возвращает число
+																меньше 1, то есть никогда не возвращает собственно 1.
+																Если вам нужно число побольше, просто умножьте полученное из метода Math.random() значение на подходящий коэффициент. Например,
+																если нужно случайное число от 0 до 10, умножьте Math.random() на 10:</aside>
+													</section>
+													<section data-transition = 'slide8-3'>
+														<h2> Math.floor()</h2>
+														<pre><code data-trim data-noescape>
+															Math.floor(3.7463463); //3
+															Math.floor(9.9999); //9
+															Math.floor(0.793423451963426); //0
+														</code></pre>
+															<pre><code data-trim data-noescape>
+																Math.floor(Math.random() * 4); // 2 
+																// может выпасть 0, 1, 2 или 3</code></pre>			
+													<aside class="notes">И все же эти случайные значения нельзя использовать как индексы
+														в массиве, поскольку индексы должны быть целыми числами, а не десятичными дробями. Чтобы исправить этот недостаток, нужен метод
+														Math.floor(), округляющий число до ближайшего снизу целого значения (по сути, он просто отбрасывает все знаки после запятой).
+														При каждом запуске этот код будет возвращать случайное число от 0
+														до 3 (включая 0 и 3). Поскольку Math.random() всегда возвращает значение меньше 1, Math.random() * 4 никогда не вернет 4 или большее число</aside>
+											</section>
+											<section data-transition = 'slide8-4'>
+												<h2>Программа случайного выбора вариантов</h2>
+												<pre><code data-trim data-noescape>
+													let phrases = ["Звучит неплохо",
+													"Да, это определенно надо сделать",
+													"Не думаю, что это хорошая идея",
+													"Может, не сегодня?",
+													"Компьютер говорит нет"]; 
+													
+													// Мне выпить еще молочного коктейля?
+													phrases[Math.floor(Math.random() * 5)]; //"Не думаю, что это хорошая идея"
+													// Мне пора делать домашнюю работу?
+													phrases[Math.floor(Math.random() * 5)];
+													"Может, не сегодня?”
+												</code></pre>		
+											<aside class="notes"> создадим массив с фразами, чтобы случайным образом
+												выбирать их с помощью написанного ранее кода. Это и будет наш компьютерный «шар судьбы»! В комментариях указаны примеры вопросов,
+												которые можно задать нашей программе. Мы создали массив phrases, в котором хранятся различные советы.
+												Теперь, придумав вопрос, можно запросить случайный элемент из массива phrases, и полученный совет поможет принять решение!</aside>
+									</section>
+										</section>
+													<section data-transition = 'slide9'>
+														<h1>Спасибо за внимание!</h1>
+														<img src="images/u1.gif" height="300" width="350">
+														<aside class = 'notes'>Я надеюсь вы не слишком устали и хоть что-то запомнили. Спасибо за внимание! Вопрсы?</aside>
+													</section>
+                            </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
